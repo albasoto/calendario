@@ -1,0 +1,88 @@
+<div class="well">
+
+  <div class="content__inner">
+    <header class="content__title">
+
+
+      <h1>Crear/Editar - Notificaciones</h1>
+
+      <div class="actions">
+        <!--<a href="" class="actions__item zmdi zmdi-trending-up"></a>
+                <a href="" class="actions__item zmdi zmdi-check-all"></a>-->
+
+        <div class="dropdown actions__item">
+          <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
+          <div class="dropdown-menu dropdown-menu-right">
+            <!-- <a href="" class="dropdown-item">Refresh</a>
+            <a href="" class="dropdown-item">Manage Widgets</a>
+            <a href="" class="dropdown-item">Settings</a> -->
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="card">
+
+
+      <div class="card-block">
+
+        <br>
+
+
+        <br>
+
+        <!-- <h3 class="card-block__title">Tipo</h3>-->
+
+        <br>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <label for="">Fecha</label>
+            <div class="form-group ">
+                <input id="date" type="date" class="form-control"  placeholder="dd/mm/aaaa" [(ngModel)]="notificacion.titulo">
+              <i class="form-group__bar"></i>
+            </div>
+          </div>
+
+
+
+          <div class="col-sm-4">
+            <label for="">Observación</label>
+            <div class="form-group">
+              <select required class="form-control" [(ngModel)]="notificacion.tipo">
+                <option value="" disabled selected>Seleccionar una opcion</option>
+                <option value="Recuperable">Recuperable</option>
+                <option value="No recuperable">No recuperable</option>
+
+              </select>
+            </div>
+
+          </div>
+
+
+        
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label for="">Feriado</label>
+          <textarea class="form-control" required maxlength="80" placeholder="Escribir máximo 80 caracteres..." [(ngModel)]="notificacion.mensaje"></textarea>
+          <i class="form-group__bar"></i>
+        </div>
+        <br>
+
+        <div class="input-group col-sm-6">
+          <div class="form-group">
+            <button class="btn btn-primary" (click)="guardarNotificacion()" *ngIf=" id == 'new' ">Guardar</button>
+            <button class="btn btn-success" (click)="actualizarNotificacion()" *ngIf=" id != 'new' ">Actualizar</button>
+            <a routerLink="/" class="btn btn-default">Cancelar</a>
+          </div>
+        </div>
+        <br/>
+
+
+      </div>
+
+    </div>
+
+  </div>

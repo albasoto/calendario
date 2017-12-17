@@ -1,0 +1,58 @@
+<header class="content__title">
+
+  <!-- BUSCADOR -->
+  <div class="navegation_active chat__search">
+    
+    <div class="form-group">
+      <input type="text" class="navigation__active form-control" placeholder="Buscar Feriado..." [(ngModel)]='tituloFilter'>
+
+      <div class="actions">
+       
+          <button routerLink="/new/new" class="btn btn-success btn--icon waves-effect"><i class="zmdi zmdi-plus"></i></button>
+   
+        </div>
+      <i class="form-group__bar"></i>
+    </div>
+  </div>
+  <h1>Calendario de Feriados</h1>
+ 
+</header>
+
+<hr>
+
+
+<div class="card">
+  <div class="card-block">
+    <div class="table-responsive">
+      <table id="data-table" class="table table-bordered">
+        <thead class="thead-default">
+          <tr>
+            <th>Fecha</th>
+            <th>Feriado</th>
+            <th>Observación</th>
+
+            <th colspan="2">Acciones </th>
+
+          
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let item of notificaciones | filtroNombreNotificacion : tituloFilter">
+          <tr>
+            <td> {{item.titulo}}</td>
+            <td> {{item.mensaje}}</td>
+            <td> {{item.tipo}}</td>
+            <th>
+                <a routerLink="/new/{{item.id}}" class="actions__item zmdi zmdi-edit " title="Editar"></a>
+            
+
+              <a (click)="deleteNotification(item.id)" class="actions__item zmdi zmdi-delete" title="Eliminar"></a>
+            </th>
+        
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
